@@ -3,7 +3,7 @@ import {Box, CssBaseline, Container} from "@mui/material"
 // components
 import Header from "../components/Header";
 import OptionsTab from "../components/OptionsTab";
-import LocationCards from "../components/LocationCards";
+import ResultCards from "../components/ResultCards";
 import Footer from "../components/Footer";
 import {displayOnDesktop} from "../themes/commonStyles";
 
@@ -32,7 +32,7 @@ export default function Home() {
                 }}
             >
                 <Container maxWidth="xl" sx={{ mb: 3 }}>
-                    <LocationCards />
+                    <ResultCards />
                 </Container>
             </Box>
             <Box sx={displayOnDesktop}>

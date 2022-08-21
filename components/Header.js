@@ -3,11 +3,10 @@ import {Box, Container} from "@mui/material"
 // components
 import {flexBetweenCenter, dFlex, displayOnDesktop} from "../themes/commonStyles";
 import Logo from "./Logo"
-import LocationSearch from "./LocationSearch";
 import ProfileSettings from "./ProfileSettings";
-import MobileSearch from "./MobileSearch"
+import MovieSearch from "./MovieSearch"
 
-const Header = () => {
+const Header = ({disable}) => {
     return (
         <Box sx={{
             ...dFlex,
@@ -21,9 +20,9 @@ const Header = () => {
                     px: 4
                 }}>
                     <Box sx={displayOnDesktop}><Logo /></Box>
-                    <Box sx={displayOnDesktop}><LocationSearch /></Box>
+                    <Box sx={displayOnDesktop}><MovieSearch /></Box>
                     <Box sx={displayOnDesktop}><ProfileSettings /></Box>
-                    <Box sx={{display: {xs: "flex", md: "none"}}}><MobileSearch /></Box>
+                    <Box sx={{display: {xs: "flex", md: "none"}}}><MovieSearch /></Box>
                 </Box>
             </Container>
         </Box>

@@ -63,6 +63,13 @@ const theme = createTheme({
             defaultProps: {
                 disableRipple: true,
             }
+        },
+        MuiInputBase: {
+            defaultProps: {
+                sx: {
+                    textAlign: "right",
+                }
+            }
         }
     }
 })
