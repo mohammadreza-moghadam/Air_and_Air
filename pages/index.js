@@ -11,25 +11,21 @@ export default function Home() {
   return (
     <>
         <CssBaseline />
-        <Box
-            sx={{
+        <Box sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                height: '100vh',
-            }}
+                height: '100vh',}}
         >
             <Box>
-                <Header />
+                <Header searchBox={"enable"} />
                 <OptionsTab />
             </Box>
-            <Box
-                sx={{
+            <Box sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     flexGrow: 1,
                     height: 100,
-                    overflowY: 'scroll',
-                }}
+                    overflowY: 'scroll',}}
             >
                 <Container maxWidth="xl" sx={{ mb: 3 }}>
                     <ResultCards />

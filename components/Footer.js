@@ -12,10 +12,10 @@ import {
 } from '../themes/commonStyles';
 
 const footerLinks = [
-    { id: 1, text: 'Privacy', url: '#' },
-    { id: 2, text: 'Terms', url: '#' },
-    { id: 3, text: 'Sitemap', url: '#' },
-    { id: 4, text: 'Destinations', url: '#' },
+    { id: 1, text: 'کپی رایت', url: '#' },
+    { id: 2, text: 'ارتباط با ما', url: '#' },
+    { id: 3, text: 'سایت ما', url: '#' },
+    { id: 4, text: 'آدرس', url: '#' },
 ];
 
 const Footer = () => {
@@ -35,7 +35,7 @@ const Footer = () => {
                 >
                     <Stack>
                         <Paper>
-                            <Link href="#"> 2022 Airbnb Copyright </Link>
+                            <Link href="#"> 2022 کپی رایت فیلم یاب </Link>
                         </Paper>
                         {footerLinks.map((link) => {
                             return (

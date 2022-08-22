@@ -1,8 +1,7 @@
-import React, {useState, useContext} from "react"
+import React, {useContext} from "react"
 import {Paper, InputBase, IconButton} from "@mui/material";
 import {FaSearch} from "react-icons/fa";
 import {VscSettings} from "react-icons/vsc";
-import axios from "axios"
 import DataContext from "../context/DataContext";
 
 const MobileSearchComponent = () => {
@@ -21,9 +20,6 @@ const MobileSearchComponent = () => {
                 textAlign: "right"
             }}
         >
-            <IconButton>
-                <VscSettings />
-            </IconButton>
             <InputBase
                 onChange={onChange}
                 sx={{ml: 1, flex: 1}}

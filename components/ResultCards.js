@@ -1,17 +1,17 @@
 import React, {useContext} from "react"
-import {Grid, Box, CardMedia, CardContent, Typography, Card, Skeleton} from '@mui/material';
+import {Grid, Box, CardMedia, CardContent, Typography, Card} from '@mui/material';
 import ReadMoreAndLess from 'react-read-more-less';
 import DataContext from "../context/DataContext";
 import Link from "next/Link";
+import styles from "../styles/ResultCards.module.css"
 
 const ResultCards = () => {
     const {results} = useContext(DataContext)
 
-    console.log(results);
-
     return (
-        <Box sx={{ mx: 2 }}>
-            <Grid container rowSpacing={4} columnSpacing={5}>
+        results.length > 0 ? (
+            <Box sx={{ mx: 2 }}>
+                <Grid container rowSpacing={4} columnSpacing={5}>
                     {results && results.map(movie => {
                         return (
                             <Grid item xs={12} sm={4} md={4} lg={3} key={movie.id}>
@@ -24,29 +24,30 @@ const ResultCards = () => {
                                                 image= {`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                                                 alt={`${movie.id}`}
                                             />
-                                            <CardContent>
-                                                <Typography gutterBottom variant="h5" component="div">
-                                                    {movie.original_title}
-                                                </Typography>
-                                                <Typography variant="body2" color="text.secondary">
-                                                    <ReadMoreAndLess
-                                                        className="read-more-content"
-                                                        charLimit={50}
-                                                        readMoreText="بیشتز"
-                                                        readLessText="کمتر"
-                                                    >
-                                                        {movie.overview}
-                                                    </ReadMoreAndLess>
-                                                </Typography>
-                                            </CardContent>
                                         </Card>
                                     </a>
                                 </Link>
+                                <CardContent className={styles.movie_info}>
+                                    <Typography gutterBottom className={styles.movie_title}>
+                                        {movie.original_title}
+                                    </Typography>
+                                    <Typography className={styles.movie_desc}>
+                                        <ReadMoreAndLess
+                                            className="read-more-content"
+                                            charLimit={50}
+                                            readMoreText="بیشتز"
+                                            readLessText="کمتر"
+                                        >
+                                            {movie.overview}
+                                        </ReadMoreAndLess>
+                                    </Typography>
+                                </CardContent>
                             </Grid>
                         )
                     })}
-            </Grid>
-        </Box>
+                </Grid>
+            </Box>
+        ) : <p className={styles.no_result}>... جست و جو کنید</p>
     );
 };
 

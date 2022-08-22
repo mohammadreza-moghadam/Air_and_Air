@@ -1,12 +1,16 @@
-import React from "react"
+import React, {useContext} from "react"
+import DataContext from "../context/DataContext";
 import {Box, Container} from "@mui/material"
 // components
 import {flexBetweenCenter, dFlex, displayOnDesktop} from "../themes/commonStyles";
 import Logo from "./Logo"
 import ProfileSettings from "./ProfileSettings";
 import MovieSearch from "./MovieSearch"
+import UsersLogo from "./UsersLogo";
 
-const Header = ({disable}) => {
+const Header = () => {
+    const {pathname} = useContext(DataContext)
+
     return (
         <Box sx={{
             ...dFlex,
@@ -19,8 +23,16 @@ const Header = ({disable}) => {
                     minHeight: 90,
                     px: 4
                 }}>
-                    <Box sx={displayOnDesktop}><Logo /></Box>
-                    <Box sx={displayOnDesktop}><MovieSearch /></Box>
+                    <Box sx={{
+                        ...displayOnDesktop,
+                        display: "flex",
+                        flexDirection: "row"
+                    }}
+                    >
+                        <Logo />
+                        <UsersLogo/>
+                    </Box>
+                    {pathname === "/" ? <Box sx={displayOnDesktop}><MovieSearch /></Box> : ""}
                     <Box sx={displayOnDesktop}><ProfileSettings /></Box>
                     <Box sx={{display: {xs: "flex", md: "none"}}}><MovieSearch /></Box>
                 </Box>

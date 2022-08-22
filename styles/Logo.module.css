@@ -1,0 +1,12 @@
+.icon {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.users,
+.filmyab {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e91e63;
+}

@@ -18,6 +18,7 @@ const OptionsTab = () => {
             <Box
                 sx={{
                     display: 'flex',
+                    justifyContent: "center",
                     flexGrow: 1,
                     px: { xs: 0, md: 2 },
                     alignItems: 'center',

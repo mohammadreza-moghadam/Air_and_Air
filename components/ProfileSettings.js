@@ -1,14 +1,14 @@
 import {Box, Typography} from "@mui/material";
 import Link from "next/Link"
 import {flexCenter} from "../themes/commonStyles";
-import styles from "./ProfileSettings.module.css"
+import styles from "../styles/ProfileSettings.module.css"
 import {Login} from "@mui/icons-material";
 import React from "react";
 
 const ProfileSettings = () => {
     return (
         <Box sx={flexCenter}>
-            <Link href={"/"}>
+            <Link href={"/login"}>
                 <a className={styles.login}>
                     <Typography sx={{
                         ml: 1,
@@ -19,7 +19,7 @@ const ProfileSettings = () => {
                     }}
                                 component="h3"
                     >
-                        ورود
+                         ورود / ثبت نام
                     </Typography>
                     <Login size={50} />
                 </a>
