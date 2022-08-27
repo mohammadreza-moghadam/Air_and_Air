@@ -8,7 +8,7 @@ import Link from "next/Link";
 // styles
 import styles from "../styles/movieInfo.module.css"
 
-const MovieInfo = () => {
+const MovieInfo = ({token}) => {
     const [movie, setMovie] = useState([])
     const [trailers, setTrailers] = useState([])
     const [loading, setIsLoading] = useState(true)
@@ -36,7 +36,7 @@ const MovieInfo = () => {
 
     return (
         <Box>
-            <Header searchBox={"disable"} />
+            <Header searchBox={"disable"} token={token} />
             <Box sx={{
                 width: "70%",
                 margin: "0 auto",
@@ -79,6 +79,12 @@ const MovieInfo = () => {
             </Box>
         </Box>
     )
+}
+
+export async function getServerSideProps({req, res}) {
+    return {
+        props: {token: req.cookies.token || ""}
+    }
 }
 
 export default MovieInfo

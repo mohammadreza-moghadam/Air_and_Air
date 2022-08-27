@@ -1,14 +1,22 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import Header from "../components/Header";
 import Paper from "@mui/material/Paper";
 import {Person} from "@mui/icons-material";
 import {Box, Grid, Typography} from "@mui/material";
 import styles from "../styles/users.module.css"
+import axios from "axios";
 
-const Users = ({users}) => {
+const Users = ({token}) => {
+    const [users, setUsers] = useState([])
+
+    useEffect(() => {
+        axios.get("https://jsonplaceholder.typicode.com/users")
+            .then(res => setUsers(res.data))
+    })
+
     return (
         <>
-            <Header />
+            <Header token={token} />
             <Box sx={{mx: 2, mt: 2}}>
                 <Grid container rowSpacing={4} columnSpacing={5}>
                     {
@@ -33,16 +41,10 @@ const Users = ({users}) => {
     )
 }
 
-export const getStaticProps = async () => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/users")
-    const users = await res.json()
-
+export async function getServerSideProps({req, res}) {
     return {
-        props: {
-            users
-        }
+        props: {token: req.cookies.token || ""}
     }
 }
-
 
 export default Users

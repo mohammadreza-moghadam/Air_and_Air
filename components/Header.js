@@ -1,4 +1,4 @@
-import React, {useContext} from "react"
+import React, {useContext, useState} from "react"
 import DataContext from "../context/DataContext";
 import {Box, Container} from "@mui/material"
 // components
@@ -6,9 +6,10 @@ import {flexBetweenCenter, dFlex, displayOnDesktop} from "../themes/commonStyles
 import Logo from "./Logo"
 import ProfileSettings from "./ProfileSettings";
 import MovieSearch from "./MovieSearch"
+import CategoryLogo from "./CategoryLogo";
 import UsersLogo from "./UsersLogo";
 
-const Header = () => {
+const Header = ({token}) => {
     const {pathname} = useContext(DataContext)
 
     return (
@@ -30,10 +31,11 @@ const Header = () => {
                     }}
                     >
                         <Logo />
-                        <UsersLogo/>
+                        <CategoryLogo />
+                        {token && <UsersLogo />}
                     </Box>
                     {pathname === "/" ? <Box sx={displayOnDesktop}><MovieSearch /></Box> : ""}
-                    <Box sx={displayOnDesktop}><ProfileSettings /></Box>
+                    <Box sx={displayOnDesktop}><ProfileSettings token={token} /></Box>
                     <Box sx={{display: {xs: "flex", md: "none"}}}><MovieSearch /></Box>
                 </Box>
             </Container>

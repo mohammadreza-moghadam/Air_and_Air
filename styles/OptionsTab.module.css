@@ -1,0 +1,14 @@
+.optionTitle {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 50px 10px 20px;
+}
+
+.trending_container {
+    margin-top: 50px;
+    border-bottom: none !important;
+}
+
+.tab {
+    font-weight: bold;
+}

@@ -1,0 +1,25 @@
+.paperStyle {
+    padding: 20px;
+    height: 70%;
+    width: 350px;
+    margin: 10px auto;
+}
+
+.avatarStyle {
+    background-color: #e91e63;
+}
+
+.buttonStyle {
+    text-align: center;
+    margin: 8px 0;
+    width: 100%;
+    background-color: #e91e63;
+    border: none;
+    color: #ffffff;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.inputStyle {
+    margin: 10px 0;
+}

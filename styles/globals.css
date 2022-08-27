@@ -26,6 +26,10 @@ a {
   text-decoration: none;
 }
 
+.css-1gsv261 {
+  border-bottom: none;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

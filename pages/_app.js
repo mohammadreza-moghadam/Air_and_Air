@@ -3,7 +3,7 @@ import AppThemeProvider from "../themes/AppThemeProvider";
 import {DataProvider} from "../context/DataContext";
 
 function MyApp({ Component, pageProps }) {
-  return (
+    return (
       <DataProvider>
           <AppThemeProvider>
               <Component {...pageProps} />

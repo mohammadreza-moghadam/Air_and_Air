@@ -1,32 +1,21 @@
 import React from "react"
 import {Box, CssBaseline, Container} from "@mui/material"
-// components
+import {useRouter} from "next/router";
 import Header from "../components/Header";
-import OptionsTab from "../components/OptionsTab";
 import ResultCards from "../components/ResultCards";
 import Footer from "../components/Footer";
 import {displayOnDesktop} from "../themes/commonStyles";
+import styles from "../styles/Home.module.css"
 
-export default function Home() {
-  return (
+export default function Home({token}) {
+    return (
     <>
         <CssBaseline />
-        <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100vh',}}
-        >
+        <Box className={styles.homeContainer}>
             <Box>
-                <Header searchBox={"enable"} />
-                <OptionsTab />
+                <Header searchBox={"enable"} token={token}/>
             </Box>
-            <Box sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    flexGrow: 1,
-                    height: 100,
-                    overflowY: 'scroll',}}
-            >
+            <Box className={styles.resultsContainer}>
                 <Container maxWidth="xl" sx={{ mb: 3 }}>
                     <ResultCards />
                 </Container>
@@ -37,4 +26,10 @@ export default function Home() {
         </Box>
     </>
   )
+}
+
+export async function getServerSideProps({req, res}) {
+    return {
+        props: {token: req.cookies.token || ""}
+    }
 }

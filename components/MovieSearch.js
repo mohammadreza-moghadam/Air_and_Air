@@ -1,7 +1,6 @@
 import React, {useContext} from "react"
 import {Paper, InputBase, IconButton} from "@mui/material";
 import {FaSearch} from "react-icons/fa";
-import {VscSettings} from "react-icons/vsc";
 import DataContext from "../context/DataContext";
 
 const MobileSearchComponent = () => {

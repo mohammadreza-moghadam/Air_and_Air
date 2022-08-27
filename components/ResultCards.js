@@ -9,45 +9,43 @@ const ResultCards = () => {
     const {results} = useContext(DataContext)
 
     return (
-        results.length > 0 ? (
-            <Box sx={{ mx: 2 }}>
-                <Grid container rowSpacing={4} columnSpacing={5}>
-                    {results && results.map(movie => {
-                        return (
-                            <Grid item xs={12} sm={4} md={4} lg={3} key={movie.id}>
-                                <Link href={`/movieInfo?id=${movie.id}`}>
-                                    <a>
-                                        <Card>
-                                            <CardMedia
-                                                component="img"
-                                                height="300"
-                                                image= {`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                                                alt={`${movie.id}`}
-                                            />
-                                        </Card>
-                                    </a>
-                                </Link>
-                                <CardContent className={styles.movie_info}>
-                                    <Typography gutterBottom className={styles.movie_title}>
-                                        {movie.original_title}
-                                    </Typography>
-                                    <Typography className={styles.movie_desc}>
-                                        <ReadMoreAndLess
-                                            className="read-more-content"
-                                            charLimit={50}
-                                            readMoreText="بیشتز"
-                                            readLessText="کمتر"
-                                        >
-                                            {movie.overview}
-                                        </ReadMoreAndLess>
-                                    </Typography>
-                                </CardContent>
-                            </Grid>
-                        )
-                    })}
-                </Grid>
-            </Box>
-        ) : <p className={styles.no_result}>... جست و جو کنید</p>
+        <Box sx={{ mx: 2 }}>
+            <Grid container rowSpacing={4} columnSpacing={5}>
+                {results && results.map(movie => {
+                    return (
+                        <Grid item xs={12} sm={4} md={4} lg={3} key={movie.id}>
+                            <Link href={`/movieInfo?id=${movie.id}`}>
+                                <a>
+                                    <Card>
+                                        <CardMedia
+                                            component="img"
+                                            height="300"
+                                            image= {`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                                            alt={`${movie.id}`}
+                                        />
+                                    </Card>
+                                </a>
+                            </Link>
+                            <CardContent className={styles.movie_info}>
+                                <Typography gutterBottom className={styles.movie_title}>
+                                    {movie.original_title}
+                                </Typography>
+                                <Typography className={styles.movie_desc}>
+                                    <ReadMoreAndLess
+                                        className="read-more-content"
+                                        charLimit={50}
+                                        readMoreText="بیشتز"
+                                        readLessText="کمتر"
+                                    >
+                                        {movie.overview}
+                                    </ReadMoreAndLess>
+                                </Typography>
+                            </CardContent>
+                        </Grid>
+                    )
+                })}
+            </Grid>
+        </Box>
     );
 };
 
