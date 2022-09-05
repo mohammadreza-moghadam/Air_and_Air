@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {Box, Typography, Modal} from "@mui/material";
 import Link from "next/Link"
-import {flexCenter} from "../themes/commonStyles";
 import styles from "../styles/ProfileSettings.module.css"
 import {Login, Settings} from "@mui/icons-material";
 import axios from "axios";
@@ -16,39 +15,27 @@ const ProfileSettings = ({token}) => {
 
     return (
             !myToken ? (
-                <Box sx={flexCenter}>
+                <Box>
                     <Link href={"/login"}>
                         <a className={styles.login}>
-                            <Typography sx={{
-                                ml: 1,
-                                mr: 0.5,
-                                color: theme => theme.palette.secondary.main,
-                                fontSize: "15px",
-                                fontWeight: "bold",
-                            }}
-                                        component="h3"
-                            >
-                                ورود / ثبت نام
-                            </Typography>
+                            <Box sx={{display: {sm: "none", md: "flex"}}}>
+                                <Typography sx={{ml: 1, mr: 0.5, color: theme => theme.palette.secondary.main, fontSize: "15px", fontWeight: "bold",}} component="h3">
+                                    ورود / ثبت نام
+                                </Typography>
+                            </Box>
                             <Login size={50} />
                         </a>
                     </Link>
                 </Box>
             ) : (
-                <Box sx={flexCenter}>
+                <Box>
                     <Link href={"/profile"}>
                         <a className={styles.profile}>
-                            <Typography sx={{
-                                ml: 1,
-                                mr: 0.5,
-                                color: theme => theme.palette.secondary.main,
-                                fontSize: "15px",
-                                fontWeight: "bold",
-                            }}
-                                        component="h3"
-                            >
-                                حساب کاربری
-                            </Typography>
+                            <Box sx={{display: {xs: "none", md: "flex"}}}>
+                                <Typography sx={{ml: 1, mr: 0.5, color: theme => theme.palette.secondary.main, fontSize: "15px", fontWeight: "bold",}} component="h3">
+                                    حساب کاربری
+                                </Typography>
+                            </Box>
                             <Settings size={50}/>
                         </a>
                     </Link>

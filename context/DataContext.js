@@ -5,6 +5,7 @@ import axios from "axios"
 const DataContext = createContext({})
 
 export const DataProvider = ({children}) => {
+    const [loading, setIsLoading] = useState(true)
     const [results, setResults] = useState([])
     const router = useRouter()
     const pathname = router.pathname
@@ -25,11 +26,11 @@ export const DataProvider = ({children}) => {
                        }
                    });
            }  catch (err) {
-               console.log(err);
                setResults([])
            } finally {
                if (e.target.value.length === 0) {
                    setResults([])
+                   setIsLoading(false)
                }
            }
         })()
@@ -37,7 +38,7 @@ export const DataProvider = ({children}) => {
 
     return (
         <DataContext.Provider value={{
-            results, onChange, movieId, pathname
+            results, onChange, movieId, pathname, loading
         }}>
             {children}
         </DataContext.Provider>

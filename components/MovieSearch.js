@@ -13,7 +13,7 @@ const MobileSearchComponent = () => {
                 p: "2px 4px",
                 display: "flex",
                 alignItems: "center",
-                width: 400,
+                width: 350,
                 border: "1px solid #ccc",
                 borderRadius: 20,
                 textAlign: "right"

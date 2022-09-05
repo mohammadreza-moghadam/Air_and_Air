@@ -12,15 +12,14 @@ const Users = ({token}) => {
     useEffect(() => {
         axios.get("https://jsonplaceholder.typicode.com/users")
             .then(res => setUsers(res.data))
-    })
+    }, [])
 
     return (
         <>
             <Header token={token} />
             <Box sx={{mx: 2, mt: 2}}>
                 <Grid container rowSpacing={4} columnSpacing={5}>
-                    {
-                        users.map(user => {
+                    {users.map(user => {
                             return (
                                 <Grid item xs={12} sm={4} lg={3} key={user.id}>
                                     <Paper elevation={3} sx={{pb: "10px"}}>
@@ -33,8 +32,7 @@ const Users = ({token}) => {
                                     </Paper>
                                 </Grid>
                             )
-                        })
-                    }
+                        })}
                 </Grid>
             </Box>
         </>

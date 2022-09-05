@@ -11,7 +11,9 @@ const Logo = () => {
                 <Link href={"/"}>
                     <a className={styles.icon}>
                         <LiveTv size={50} />
-                        <Typography className={styles.filmyab}>فیلم یاب</Typography>
+                        <Box sx={{display: {xs: "none", md: "flex"}}}>
+                            <Typography className={styles.filmyab}>فیلم یاب</Typography>
+                        </Box>
                     </a>
                 </Link>
         </Box>

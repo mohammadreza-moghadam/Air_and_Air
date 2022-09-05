@@ -11,7 +11,9 @@ const UsersLogo = () => {
             <Link href={"/users"}>
                 <a className={styles.icon}>
                     <Group size={50} />
-                    <Typography className={styles.users}>کاربران</Typography>
+                    <Box sx={{display: {xs: "none", md: "flex"}}}>
+                        <Typography className={styles.users}>کاربران</Typography>
+                    </Box>
                 </a>
             </Link>
         </Box>
